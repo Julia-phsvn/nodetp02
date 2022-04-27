@@ -10,8 +10,9 @@ html {
 
 body {
   height: 100vh;
-  max-width: 600px;
-  padding: 0 24px;
+  max-width: 100vw;
+  background-color: #F7F1FA;
+  width: 100vw;
   margin: auto;
   display: flex;
   overflow: hidden;
@@ -23,24 +24,58 @@ body {
 
 div.full-height {
   flex: auto;
+  height: 70vh;
 }
 
 header {
-  height: 60px;
-  border-bottom: solid 1px silver;
+  height: 120px;
+  padding: 65px 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+h1{
+  text-align: center;
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+
 
 p {
   margin: 0;
+}
+
+.icon{
+  height: 30px;
+  width: 30px;
+}
+
+.iconsend{
+  border-radius: 30px;
+  background-color: #87639B;
+  border: none;
+  padding: 0px;
+}
+
+button{
+  border: none;
+  background: none;
+  height: 40px;
 }
 
 /* MESSAGES */
 main {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 212px);
-  max-height: calc(100vh - 212px);
+  height: calc(100% - 120px);
+  max-height: calc(100% - 120px);
   overflow: scroll;
+  background-color: white;
+  border-radius: 50px 50px 0px 0px;
 }
 
 main .top-space {
@@ -49,11 +84,11 @@ main .top-space {
 }
 
 .message {
-  width: 60%;
-  padding: 10px 18px;
-  border-radius: 30px;
-  border: solid 1px #bbb;
+  width: auto;
+ 
   margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .message p {
@@ -61,19 +96,50 @@ main .top-space {
 }
 
 .message span {
-  font-size: small;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.moi{
+  align-items: flex-end !important;
+  margin-right: 20px;
+}
+
+.autre{
+  align-items: flex-start !important;
+  margin-left: 20px;
+}
+
+.moi p{
+  background-color: #F2E9F6;
+  padding: 20px 10px 20px 20px;
+  border-radius: 15px;
+  text-align: start;
+  width: auto;
+  max-width: 80%;
+  margin-bottom: 5px;
+}
+
+.autre p{
+  background-color: #ECE9ED;
+  padding: 20px 10px 20px 20px;
+  border-radius: 15px;
+  text-align: start;
+  width: auto;
+  max-width: 80%;
+  margin-bottom: 5px;
 }
 
 /* FORM */
 form#new-message {
   margin: 0;
   padding-top: 12px;
-  border-top: solid 1px silver;
+  padding: 20px 25px;
+  background-color: white;
 }
 
 form#new-message > div {
   display: flex;
-  gap: 12px;
   margin-bottom: 12px;
   align-items: center;
 }
@@ -85,12 +151,84 @@ input {
   border-radius: 4px;
   outline: none;
   padding: 6px;
+  font-size: 15px;
 }
 
 input[type='submit'] {
   padding: 2px;
+  width: 60px;
+  
+}
+
+.G-scroll-container{
+  display: block;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.scroll-container{
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.block{
+  display: block;
+  white-space: nowrap;
+}
+
+.block1{
+  display: block;
+  border-radius: 25px;
+}
+
+.block-1-c{
+  margin-left: 20px;
+  display: block;
+  white-space: nowrap;
+}
+
+.btnaide{
+  padding: 5px 10px;
+  background-color: #DAD8F8;
+  margin-right: 20px;
+  border-radius: 25px;
+}
+
+.btn-aide1{
+  padding: 5px;
+  background-color: #DAD8F8;
+  border-radius: 25px;
+}
+
+.Tap-message{
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.Inputtapmessage{
+  background: none;
+  border: none;
+  border-radius: none;
+  padding: 15px;
+}
+
+
+/* date */
+
+.date {
+  font-size: 14px !important;
+  color: rgb(179, 179, 179);
+  padding: none !important;
+  border-radius: none !important;
+  background-color: none !important;
 }
 
 /* index mettre un required pour le pseudo peut etre interessant, pour onliger à mettre un pseudo (afficher msg erre */
 
 /* dossier front que interessant submit dans chay et comment récupérer data dans dom plus css */
+

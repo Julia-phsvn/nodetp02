@@ -8,36 +8,143 @@
     <link rel="stylesheet" href="./style.css" />
     <link rel="icon" href="./favicon.svg" />
   </head>
+
   <body>
+
     <div class="full-height">
-      <header><h1>Realtime WS Chat</h1></header>
+      <header>
+        <button><img class="icon" src="images/Iconback.png" alt="Back"></button>
+        <h1>Pseudo Chat</h1>
+        <button onclick="Togglepseudo()"><img class="icon" src="images/Iconprofil.png" alt="Profil"></button>
+      </header>
       <main>
-        <div class="top-space"></div>
+        <div class="top-space" id="message-container"></div>
       </main>
     </div>
+
     <form id="new-message">
+
+      <div class="G-scroll-container">
+
+        <div class="block1">
+          <button class="btn-aide1">
+            <img class="icon" src="images/Icondoc.png" alt="">
+          </button>
+        </div>
+
+        <div class="scroll-container">
+          
+          <div class="block-1-c">
+            <button onclick="replaceWith()" class="btnaide">mot de voc</button>
+          </div>
+
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">texte</button>
+          </div>
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">expression</button>
+          </div>
+
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">texte</button>
+          </div>
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">expression</button>
+          </div>
+
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">texte</button>
+          </div>
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">mot familier</button>
+          </div>
+
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">expression</button>
+          </div>
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">expression</button>
+          </div>
+
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">mot de vocalulaire</button>
+          </div>
+          <div class="block">
+            <button onclick="replaceWith()" class="btnaide">texte</button>
+          </div>
+        </div>
+
+    </div>
+ 
       <div>
-        <label for="pseudo">Pseudo</label>
+        <label for="pseudo"></label>
         <input
           id="pseudo"
           name="pseudo"
-          placeholder="John Doe"
+          placeholder="Pseudo"
           autocomplete="off"
         />
       </div>
-      <div>
-        <label for="body">Body</label>
+
+
+      <div class="Tap-message">
+        <label for="body"></label>
         <input
+          class="Inputtapmessage"
           id="body"
           name="body"
-          placeholder="What's up?"
-          autocomplete="false"
-        />
+          placeholder="Tappez votre message..."
+          autocomplete="on"/>
+          <input class="icon iconsend" type="image" src="images/Iconsend.png" value="" id="send-button" />
       </div>
-      <div>
-        <input type="submit" value="Submit" />
-      </div>
-    </form>
+
+
+    </form>    
+
+    <!-- TOGGLE BOUTTON PSEUDO ---------------------------------------------------------------------------->
+    <script>
+      function Togglepseudo() {
+        var x = document.getElementById("pseudo");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+    <!-- TOGGLE BOUTTON PSEUDO ---------------------------->
+
+
+    <script>
+
+
+      function replaceWith(){
+
+        const tapMsg = document.getElementsByClassName('Inputtapmessage')
+
+        let buttons = Array.from(document.getElementsByClassName('btnaide'))
+
+        buttons.map( btnaide => {
+
+          btnaide.addEventListener('click', (e) => {
+            console.log('clicked');
+            console.log(e.target.innerText);
+
+            switch(e.target.innerText) {
+              default:
+                tapMsg.innerText += e.target.innerText;
+            }
+            
+
+          });
+
+        });
+      }
+
+    </script>
+
+
     <script src="./scripts/main.js" type="module"></script>
+
   </body>
 </html>

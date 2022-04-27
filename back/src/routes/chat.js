@@ -1,10 +1,15 @@
+import { time } from 'console'
 import { randomUUID } from 'crypto'
+import { formatDistanceToNow, format } from 'date-fns'
+import { error } from 'console'
+
 
 /**
  * @typedef {Object} Message
  * @property {string} id - an uuid
  * @property {string} pseudo - sender pseudo
  * @property {string} body - body of the message
+ * @property {Date} date - date of the message
  */
 
 /** @type { Message[] } */
@@ -50,6 +55,17 @@ export async function chatRoutes(app) {
   app.get('/', { websocket: true }, (connection, req) => {
     connection.socket.on('message', (message) => {
       const data = JSON.parse(message.toString('utf-8'))
+
+
+      if (data.pseudo.length > 10 || data.body.length > 200 ) {
+        connection.socket.send(JSON.stringify({
+          type: 'ERROR2',
+          payload: 'pseudo and message too long',    
+        }))
+        return
+      }
+      
+
       broadcast({
         type: 'NEW_MESSAGE',
         payload: handleNewMessage(data.pseudo, data.body),
